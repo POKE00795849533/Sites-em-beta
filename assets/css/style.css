@@ -1,0 +1,447 @@
+:root {
+  --bg-claro: #faebd7;
+  --bg-escuro: #000;
+  --txt-claro: #fff;
+  --txt-escuro: #000;
+  --card-bg: #fff;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: var(--bg-claro);
+  color: var(--txt-escuro);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+header {
+  background-color: var(--bg-escuro);
+  text-align: center;
+}
+
+header h1 {
+  padding: 1rem 0;
+  color: var(--txt-claro);
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+main {
+  padding: 2rem 0;
+}
+
+section#content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  width: 90%;
+  margin: auto;
+}
+
+article.item {
+  flex: 1 1 220px;
+  max-width: 300px;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 0.7rem;
+  text-align: center;
+  background-color: var(--card-bg);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.item img {
+  width: 100%;
+  height: auto;
+  max-height: 240px;
+  border-radius: 0.6rem;
+  object-fit: cover;
+  user-select: none;
+}
+
+.item-name {
+  font-size: 1.4rem;
+  text-transform: capitalize;
+}
+
+.item-price {
+  font-size: 1.8rem;
+}
+
+.buy-btn {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  border-radius: 0.6rem;
+  border: none;
+  background-color: var(--bg-escuro);
+  color: var(--txt-claro);
+  transition: 0.2s;
+  cursor: pointer;
+  padding: 0.6rem 1rem;
+}
+
+.buy-btn:hover {
+  transform: scale(1.05);
+  background-color: #7f8282;
+  color: var(--txt-escuro);
+}
+
+.buy-btn:active {
+  transform: scale(0.95);
+  background-color: #106200;
+  color: #97ff91;
+}
+
+section#contato {
+  border-top: 2px solid var(--bg-escuro);
+  padding: 3rem 1rem;
+}
+
+#titleContato {
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: 0.2rem;
+  user-select: none;
+  margin-bottom: 2rem;
+  text-transform: capitalize;
+}
+
+ul#contatoItens {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.contato-linha {
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contato-linha a {
+  text-decoration: none;
+  color: var(--txt-escuro);
+}
+
+footer {
+  background-color: var(--bg-escuro);
+  color: var(--txt-claro);
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 1rem;
+}
+
+#footerTexto {
+  font-size: 1.6rem;
+}
+
+#escolher {
+  border-radius: 2rem;
+  width: 90%;
+  max-width: 600px;
+  height: auto;
+  padding-bottom: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--card-bg);
+  text-align: center;
+  box-sizing: border-box;
+  user-select: none;
+  display: none;
+}
+
+#galaxy {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#galaxyC,
+#galaxyT {
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  align-items: center;
+}
+
+#galaxyC input[type="radio"],
+#galaxyT input[type="radio"] {
+  margin-bottom: 12px;
+  margin-left: 5px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#galaxyC input[type="radio"]:hover,
+#galaxyT input[type="radio"]:hover {
+  scale: 130%;
+}
+
+#escolher button {
+  margin-top: 2rem;
+  padding: 0.6rem 2rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  border-radius: 1rem;
+  border: none;
+  background-color: var(--bg-escuro);
+  color: var(--txt-claro);
+  transition: 0.2s;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  transform: none;
+  left: auto;
+  bottom: auto;
+}
+
+#escolher button:hover {
+  scale: 105%;
+}
+
+#escolher button:active {
+  scale: 80%;
+}
+
+.carContener {
+  display: none;
+  position: absolute;
+  left: 20%;
+  top: 1rem;
+  right: 20%;
+  bottom: 0;
+  z-index: 3;
+  background-color: #eeeeee;
+  align-items: center;
+  text-align: center;
+  border-radius: 0.5rem;
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+.carTitle {
+  color: rgb(0, 0, 0);
+  font-size: 1.7rem;
+}
+.cart {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.cart-items {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  padding: 0.5rem;
+  background-color: inherit;
+  border-radius: 0.5rem;
+  font-size: 1.6rem;
+}
+
+.carTotal {
+  color: rgb(0, 0, 0);
+  font-size: 1.7rem;
+}
+.remove-one,
+.remove-all {
+  border: none;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  padding: 0.3rem 0.5rem;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0.6rem;
+  background-color: #000000;
+  color: #ffffff;
+  transition: 0.2s;
+  max-width: 150px;
+}
+
+.remove-one:hover,
+.remove-all:hover {
+  background-color: #404040;
+  scale: 105%;
+}
+
+.remove-one:active,
+.remove-all:active {
+  scale: 90%;
+}
+#closeCar {
+  position: absolute;
+  left: 5px;
+  top: 30px;
+  border: none;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 0.3rem 0.7rem;
+  border-radius: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: 0.2s;
+  cursor: pointer;
+  user-select: none;
+}
+#closeCar:hover {
+  scale: 105%;
+  background-color: #404040;
+}
+#closeCar:active {
+  scale: 80%;
+  background-color: #ffffff;
+  color: #000000;
+}
+#openCarall {
+  font-size: 2rem;
+  position: fixed;
+  left: 1%;
+  top: 20%;
+  border: none;
+  background-color: transparent;
+  color: #000000;
+  outline: 2px solid black;
+  padding: 0.2rem 0.2rem;
+  border-radius: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: 0.2s;
+  cursor: pointer;
+  user-select: none;
+}
+#openCarall:hover {
+  scale: 105%;
+  background-color: #404040;
+}
+#openCarall:active {
+  scale: 80%;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+@media (max-width: 600px) {
+  section#content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  article.item {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #contatoItens {
+    flex-direction: column;
+    align-items: center;
+  }
+  #titleContato {
+    font-size: 2rem;
+  }
+
+  #footerTexto {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 480px) {
+  #galaxy {
+    gap: 15px;
+  }
+
+  #galaxyC input[type="radio"],
+  #galaxyT input[type="radio"] {
+    width: 20px;
+    height: 20px;
+  }
+}
+@media (max-width: 600px) {
+  .carTitle {
+    font-size: 1.2rem;
+  }
+
+  .carTotal {
+    font-size: 1.2rem;
+  }
+
+  .cart-item {
+    font-size: 0.95rem;
+    padding: 0.5rem 0.3rem;
+  }
+
+  .remove-one,
+  .remove-all {
+    font-size: 0.8rem;
+    padding: 0.3rem;
+  }
+
+  .carContener {
+    left: 0;
+    right: 0;
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .carTitle {
+    font-size: 1rem;
+  }
+
+  .carTotal {
+    font-size: 1rem;
+  }
+
+  .remove-one,
+  .remove-all {
+    font-size: 0.7rem;
+    padding: 0.2rem;
+  }
+
+  .cart-item {
+    font-size: 0.85rem;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.animate-once {
+  animation: pulse 1s ease-in-out;
+}

@@ -1,263 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Nome da Empresa</title>
-    <meta name="description" content="Loja de roupas femininas" />
-    <meta name="keywords" content="moda, roupas femininas, loja" />
-    <meta name="author" content="Nome da Empresa" />
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
-    />
-    <link rel="stylesheet" href="assets/css/style.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <title>Pagamento Pix via WhatsApp</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 400px;
+      margin: 50px auto;
+      text-align: center;
+    }
+    input, button {
+      font-size: 1.2rem;
+      padding: 10px;
+      margin: 10px 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #25D366;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #1DA851;
+    }
+  </style>
+</head>
+<body>
+  <h1>Pagamento Pix via WhatsApp</h1>
+  <label for="valor">Digite o valor (R$):</label>
+  <input type="number" id="valor" step="0.01" min="0.01" value="0.01" />
 
-  <body>
-    <button onclick="enviarWhatsapp()">Enviar pelo WhatsApp</button>
+  <button id="btnPagar">Pagar via WhatsApp Pix</button>
 
-    <button onclick="openCar()" id="openCarall">
-      <i id="buttonLoja" class="bi bi-cart-check"></i>
-    </button>
-    <div class="carContener">
-      <button id="closeCar" onclick="closeCar()">fechar</button>
-      <div id="cart">
-        <h2 class="carTitle">Itens no Carrinho:</h2>
-        <br /><br />
-        <ul id="cart-items"></ul>
-        <h3 class="carTotal"><br />Total: R$<span id="total">0</span></h3>
-      </div>
-    </div>
-    <header>
-      <h1>Nome da Empresa</h1>
-    </header>
+  <script>
+    const chavePix = "samuellucas1pk@gmail.com";
+    const numeroWhats = "5521988759154"; // Troca pelo seu número com DDI
 
-    <main>
-      <section id="content">
-        <article class="item">
-          <img
-            src="assets/image/modeli,alearóio.webp"
-            alt="Produto Roupa Feminina"
-          />
-          <p class="item-name">Roupa Feminina</p>
-          <p class="item-price">R$ 200,65</p>
-          <button
-            class="buy-btn"
-            onclick="openEscolha('Short Perereca', 24,99)"
-          >
-            Comprar
-          </button>
-        </article>
-        <!-- Article ALFA -->
-        <article class="item">
-          <img
-            src="assets/image/modeli,alearóio.webp"
-            alt="Produto Roupa Feminina"
-          />
-          <p class="item-name">Roupa Feminina</p>
-          <p class="item-price">R$ 200,65</p>
-          <button
-            class="buy-btn"
-            onclick="openEscolha('Short Perereca', 24,99)"
-          >
-            Comprar
-          </button>
-        </article>
-        <article class="item">
-          <img
-            src="assets/image/modeli,alearóio.webp"
-            alt="Produto Roupa Feminina"
-          />
-          <p class="item-name">Roupa Feminina</p>
-          <p class="item-price">R$ 200,65</p>
-          <button
-            class="buy-btn"
-            onclick="openEscolha('Short Perereca', 24,99)"
-          >
-            Comprar
-          </button>
-        </article>
-        <article class="item">
-          <img
-            src="assets/image/modeli,alearóio.webp"
-            alt="Produto Roupa Feminina"
-          />
-          <p class="item-name">Roupa Feminina</p>
-          <p class="item-price">R$ 200,65</p>
-          <button
-            class="buy-btn"
-            onclick="openEscolha('Short Perereca', 24,99)"
-          >
-            Comprar
-          </button>
-        </article>
-        <article class="item">
-          <img
-            src="assets/image/modeli,alearóio.webp"
-            alt="Produto Roupa Feminina"
-          />
-          <p class="item-name">Roupa Feminina</p>
-          <p class="item-price">R$ 200,65</p>
-          <button
-            class="buy-btn"
-            onclick="openEscolha('Short Perereca', 24,99)"
-          >
-            Comprar
-          </button>
-        </article>
-        <article class="item">
-          <img
-            src="assets/image/modeli,alearóio.webp"
-            alt="Produto Roupa Feminina"
-          />
-          <p class="item-name">Roupa Feminina</p>
-          <p class="item-price">R$ 200,65</p>
-          <button
-            class="buy-btn"
-            onclick="openEscolha('Short Perereca', 24,99)"
-          >
-            Comprar
-          </button>
-        </article>
-        <article class="item">
-          <img
-            src="assets/image/modeli,alearóio.webp"
-            alt="Produto Roupa Feminina"
-          />
-          <p class="item-name">Roupa Feminina</p>
-          <p class="item-price">R$ 200,65</p>
-          <button
-            class="buy-btn"
-            onclick="openEscolha('Short Perereca', 24,99)"
-          >
-            Comprar
-          </button>
-        </article>
-        <article class="item">
-          <img
-            src="assets/image/modeli,alearóio.webp"
-            alt="Produto Roupa Feminina"
-          />
-          <p class="item-name">Roupa Feminina</p>
-          <p class="item-price">R$ 200,65</p>
-          <button
-            class="buy-btn"
-            onclick="openEscolha('Short Perereca', 24,99)"
-          >
-            Comprar
-          </button>
-        </article>
-        <article class="item">
-          <img
-            src="assets/image/modeli,alearóio.webp"
-            alt="Produto Roupa Feminina"
-          />
-          <p class="item-name">Roupa Feminina</p>
-          <p class="item-price">R$ 200,65</p>
-          <button
-            class="buy-btn"
-            onclick="openEscolha('Short Perereca', 24,99)"
-          >
-            Comprar
-          </button>
-        </article>
-        <article class="item">
-          <img
-            src="assets/image/modeli,alearóio.webp"
-            alt="Produto Roupa Feminina"
-          />
-          <p class="item-name">Roupa Feminina</p>
-          <p class="item-price">R$ 200,65</p>
-          <button
-            class="buy-btn"
-            onclick="openEscolha('Short Perereca', 24,99)"
-          >
-            Comprar
-          </button>
-        </article>
-        <article class="item">
-          <img
-            src="assets/image/modeli,alearóio.webp"
-            alt="Produto Roupa Feminina"
-          />
-          <p class="item-name">Roupa Feminina</p>
-          <p class="item-price">R$ 200,65</p>
-          <button
-            class="buy-btn"
-            onclick="openEscolha('Short Perereca', 24,99)"
-          >
-            Comprar
-          </button>
-        </article>
-        <!-- FIM DAS ARTICLES -->
-      </section>
+    document.getElementById("btnPagar").addEventListener("click", () => {
+      let valor = parseFloat(document.getElementById("valor").value);
+      if (isNaN(valor) || valor < 0.01) {
+        alert("Digite um valor válido mínimo R$0,01");
+        return;
+      }
 
-      <section id="contato">
-        <h2 id="titleContato">Contatos</h2>
-        <ul id="contatoItens">
-          <li class="contato-linha">
-            <i class="bi bi-facebook"></i>
-            <a href="#">@facebookdaempresa</a>
-          </li>
-          <li class="contato-linha">
-            <i class="bi bi-whatsapp"></i>
-            <a href="#">(00) 91234-5678</a>
-          </li>
-          <li class="contato-linha">
-            <i class="bi bi-instagram"></i>
-            <a href="#">@instadaempresa</a>
-          </li>
-        </ul>
-      </section>
-    </main>
+      const mensagem = `Olá, quero pagar R$${valor.toFixed(2)} para a chave Pix ${chavePix}`;
+      const msgEncoded = encodeURIComponent(mensagem);
+      const linkWhats = `https://wa.me/${numeroWhats}?text=${msgEncoded}`;
 
-    <footer>
-      <p id="footerTexto">&copy; 2025 Loja. Todos os direitos reservados.</p>
-    </footer>
-
-    <section id="escolher">
-      <form id="escolherForm">
-        <div id="galaxy">
-          <div id="galaxyC">
-            <h2>Cor</h2>
-            <label>Vermelho</label
-            ><input type="radio" name="cor" value="vermelho" /><br />
-            <label>Azul</label
-            ><input type="radio" name="cor" value="Azul" /><br />
-            <label>Amarelo</label
-            ><input type="radio" name="cor" value="Amarelo" /><br />
-            <label>Verde</label
-            ><input type="radio" name="cor" value="Verde" /><br />
-            <label>Rosa</label
-            ><input type="radio" name="cor" value="Rosa" /><br />
-            <label>Roxo</label
-            ><input type="radio" name="cor" value="Roxo" /><br />
-            <label>Laranja</label
-            ><input type="radio" name="cor" value="Laranja" /><br />
-            <label>Branco</label
-            ><input type="radio" name="cor" value="Branco" /><br />
-            <label>Preto</label><input type="radio" name="cor" value="Preto" />
-          </div>
-          <div id="galaxyT">
-            <h2>Tamanho</h2>
-            <label>PP</label
-            ><input type="radio" name="tamanho" value="PP" /><br />
-            <label>P</label
-            ><input type="radio" name="tamanho" value="P" /><br />
-            <label>M</label
-            ><input type="radio" name="tamanho" value="M" /><br />
-            <label>G</label
-            ><input type="radio" name="tamanho" value="G" /><br />
-            <label>GG</label><input type="radio" name="tamanho" value="GG" />
-          </div>
-        </div>
-        <button type="submit">Confirmar Escolhas</button>
-      </form>
-    </section>
-
-    <script src="./assets/js/app.js"></script>
-  </body>
+      window.open(linkWhats, "_blank");
+    });
+  </script>
+</body>
 </html>
